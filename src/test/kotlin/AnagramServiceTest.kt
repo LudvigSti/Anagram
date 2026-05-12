@@ -19,4 +19,23 @@ class AnagramTest {
 
         assertTrue(grouped["eilnst"]!!.containsAll(listOf("listen", "silent")))
     }
+
+    @Test
+    fun signature2_should_be_identical_for_anagrams() {
+        assertEquals(
+            signature2("søå"),
+            signature2("øså")
+        )
+    }
+
+    @Test
+    fun grouping_should_work_with_signature2() {
+        val words = listOf("listen", "silent", "cat", "act")
+
+        val grouped = words.groupBy { signature2(it) }
+
+        val key = signature2("listen")
+
+        assertTrue(grouped[key]!!.containsAll(listOf("listen", "silent")))
+    }
 }
