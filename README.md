@@ -1,4 +1,4 @@
-# RepriceAnagram
+# Anagram
 
 # Anagram Grouping Program
 
