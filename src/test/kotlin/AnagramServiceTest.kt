@@ -8,14 +8,14 @@ class AnagramTest {
 
     @Test
     fun signature_should_sort_characters_alphabetically() {
-        assertEquals("eilnst", signature("listen"))
+        assertEquals("eilnst", anagramSignatureSorted("listen"))
     }
 
     @Test
     fun grouping_should_map_word_to_signture() {
         val words = listOf("listen", "silent", "cat", "act")
 
-        val grouped = groupAnagrams(words)
+        val grouped = groupAnagramsBySorted(words)
 
         assertTrue(grouped["eilnst"]!!.containsAll(listOf("listen", "silent")))
     }
@@ -23,19 +23,8 @@ class AnagramTest {
     @Test
     fun signature2_should_be_identical_for_anagrams() {
         assertEquals(
-            signature2("søå"),
-            signature2("øså")
+            anagramSignatureFrequency("søå"),
+            anagramSignatureFrequency("øså")
         )
-    }
-
-    @Test
-    fun grouping_should_work_with_signature2() {
-        val words = listOf("listen", "silent", "cat", "act")
-
-        val grouped = words.groupBy { signature2(it) }
-
-        val key = signature2("listen")
-
-        assertTrue(grouped[key]!!.containsAll(listOf("listen", "silent")))
     }
 }

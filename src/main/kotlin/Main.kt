@@ -7,8 +7,8 @@ fun main() {
         ?.readLines()
         ?: error("File not found")
 
-    val grouped = groupAnagrams(words)
-    //val grouped = groupAnagrams2(words)
+    //val grouped = groupAnagramsBySorted(words)
+    val grouped = groupAnagramsByFrequency(words)
 
     grouped.values
         .filter { it.size > 1 }

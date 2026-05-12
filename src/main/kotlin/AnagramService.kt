@@ -1,12 +1,12 @@
 package com.ludvig.repriceanagram
 
-fun signature(word: String): String =
+fun anagramSignatureSorted(word: String): String =
     word.toCharArray().sorted().joinToString("")
 
-fun groupAnagrams(words: List<String>): Map<String, List<String>> =
-    words.groupBy { signature(it) }
+fun groupAnagramsBySorted(words: List<String>): Map<String, List<String>> =
+    words.groupBy { anagramSignatureSorted(it) }
 
-fun signature2(word: String): String {
+fun anagramSignatureFrequency(word: String): String {
     val counts = mutableMapOf<Char, Int>()
 
     for (c in word.lowercase()) {
@@ -20,5 +20,5 @@ fun signature2(word: String): String {
         }
 }
 
-fun groupAnagrams2(words: List<String>): Map<String, List<String>> =
-    words.groupBy { signature2(it) }
+fun groupAnagramsByFrequency(words: List<String>): Map<String, List<String>> =
+    words.groupBy { anagramSignatureFrequency(it) }
