@@ -8,6 +8,7 @@ fun main() {
         ?: error("File not found")
 
     val grouped = groupAnagrams(words)
+    //val grouped = groupAnagrams2(words)
 
     grouped.values
         .filter { it.size > 1 }
